@@ -1,6 +1,6 @@
 # My Analysis Journey
 
-A structured learning and portfolio repository documenting my hands-on 
+This is a structured learning and portfolio repository documenting my hands-on 
 progression into data analytics. Built while preparing for a career 
 transition to data analytics
 
