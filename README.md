@@ -36,7 +36,7 @@ NB: Completed projects will be transferred to a dedicated portfolio repository.
 ## Learning Roadmap
 
 - [x] SQL fundamentals
-- [] Advanced SQL (window functions, optimization)
+- [ ] Advanced SQL (window functions, optimization)
 - [ ] Excel dashboards and reporting
 - [ ] Python for data analysis
 - [ ] First end-to-end project
