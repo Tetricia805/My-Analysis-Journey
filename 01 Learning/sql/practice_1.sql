@@ -49,7 +49,10 @@ CREATE TABLE order_items (
     order_id INT, -- Links to the Orders table
     good_id INT,  -- Links to the Goods table
     quantity INT, -- How many did they buy?
-    price_at_sale DECIMAL(10,2), -- Price changes
+    price_at_sale DECIMAL(10,2), -- Price changes,!
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (good_id) REFERENCES goods(good_id)
 );
+
+
+#PEMDAS
