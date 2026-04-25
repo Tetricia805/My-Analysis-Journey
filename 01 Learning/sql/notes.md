@@ -20,3 +20,4 @@ The Attribute (The "Detail")
 An attribute is a specific piece of information that describes the entity. In a database, attributes become the Columns of your table.
 Examples: If the entity is a Student, the attributes are Name, Date of Birth, and Email.
 
+Aggregate functions include AVG, MAX, MIN, COUNT
