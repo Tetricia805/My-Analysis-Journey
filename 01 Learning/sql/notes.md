@@ -16,6 +16,13 @@ An entity is a person, place, object, or event that you want to store data about
 
 Examples: A Student, a Product, a Car, or a Sale
 
+
+#PEMDAS
+
+-- # PRAGMA_TABLE_INFO It is a command that helps find information about a table created
+
+PRAGMA_TABLE_INFO(orders)
+
 The Attribute (The "Detail")
 An attribute is a specific piece of information that describes the entity. In a database, attributes become the Columns of your table.
 Examples: If the entity is a Student, the attributes are Name, Date of Birth, and Email.
