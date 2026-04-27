@@ -10,8 +10,24 @@ CREATE TABLE goods (
     good_name VARCHAR(50),
     expiry_date DATE,
     stock_date DATETIME,
-    good_pice DECIMAL(10,2) 
+    good_price DECIMAL(10,2) 
 );
+
+DROP TABLE good; --- for deleting a table from a databse
+
+DELETE FROM goods; -- for deleting all rows
+
+INSERT INTO
+goods(good_id, good_name, expiry_date,stock_date, good_price)
+
+VALUES
+(001, 'oil', '2026-10-01', '2024-10-01', "20000"),
+(002, 'maize', '2026-12-01', '2025-12-01', "20000");
+
+UPDATE goods
+SET  good_name = 'maize_flour'
+
+WHERE good_id =002
 
 
 CRAETE TABLE customer(
@@ -34,12 +50,17 @@ CREATE TABLE retailer(
 
 CREATE TABLE orders(
     order_id INT NOT NULL PRIMARY KEY,
-    oredr_date DATETIME,
+    order_date DATETIME,
     order_amount DECIMAL,
     customer_id
     FOREIGN KEY (customer_id) REEFENCES customer(customer_id)
 )
 
+
+INSERT INTO
+orders(order_id, order_date, order_amount, customer_id )
+VALUES
+(001, '2026-04-10', '200000', 002);
 
 
 -- This is the "Bridge Table" (The Receipt Lines)
@@ -54,5 +75,3 @@ CREATE TABLE order_items (
     FOREIGN KEY (good_id) REFERENCES goods(good_id)
 );
 
-
-#PEMDAS
