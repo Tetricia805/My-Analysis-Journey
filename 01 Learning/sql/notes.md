@@ -28,7 +28,7 @@ Examples: If the entity is a Student, the attributes are Name, Date of Birth, an
 
 Aggregate functions include AVG, MAX, MIN, COUNT
 
-| Category              | Must-Know Concepts                                    | Why Employers Care                 |
+| Category              | Must-Know Concepts                                    | Why                 |
 | --------------------- | ----------------------------------------------------- | ---------------------------------- |
 | **Data Retrieval**    | SELECT, DISTINCT, WHERE, ORDER BY, LIMIT              | Foundation of all analysis         |
 | **Filtering**         | AND/OR/NOT, IN, BETWEEN, LIKE, wildcards              | Precision in data extraction       |
