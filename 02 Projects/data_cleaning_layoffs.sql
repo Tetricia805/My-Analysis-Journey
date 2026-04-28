@@ -42,6 +42,39 @@ FROM layoffs_staging
 WHERE company = 'Casper';
 
 
+INSERT INTO `world_layoffs`.`layoffs_staging2`
+(`company`,
+`location`,
+`industry`,
+`total_laid_off`,
+`percentage_laid_off`,
+`date`,
+`stage`,
+`country`,
+`funds_raised_millions`,
+`row_num`)
+SELECT `company`,
+`location`,
+`industry`,
+`total_laid_off`,
+`percentage_laid_off`,
+`date`,
+`stage`,
+`country`,
+`funds_raised_millions`,
+		ROW_NUMBER() OVER (
+			PARTITION BY company, location, industry, total_laid_off,percentage_laid_off,`date`, stage, country, funds_raised_millions
+			) AS row_num
+	FROM 
+		world_layoffs.layoffs_staging;
 
+-- now that we have this we can delete rows were row_num is greater than 2
+
+DELETE FROM world_layoffs.layoffs_staging2
+WHERE row_num >= 2;
+
+
+
+-- 2. Standardize Data
 
 
