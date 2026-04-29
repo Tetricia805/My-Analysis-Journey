@@ -325,5 +325,37 @@ FROM recipes WHERE prep_time_min > 5
 AND servings BETWEEN 2 AND 6
 AND cook_time_min >20;
 
+SELECT * FROM kitchen.utensils_tools;
+
+SELECT utensil_name, available_number
+FROM kitchen.utensils_tools WHERE utensil_name LIKE '%isk';
+
+SELECT utensil_name, available_number
+FROM kitchen.utensils_tools WHERE utensil_name LIKE 'C%';
+
+SELECT utensil_name, available_number
+FROM kitchen.utensils_tools WHERE utensil_name LIKE '%a%';
+
+SELECT utensil_name, available_number
+FROM kitchen.utensils_tools WHERE utensil_name LIKE '_a___';
+
+SELECT utensil_name, available_number
+FROM kitchen.utensils_tools WHERE utensil_name != 'Ladle';
+
+--  Aggregation
+
+SELECT * 
+FROM food_ingredients;
+
+SELECT food_name, 
+food_number,
+unit, 
+unit_price,  
+AVG(unit_price) mean, 
+count(unit_price) count, 
+MAX(unit_price) maximum, 
+MIN(unit_price) minimum
+FROM food_ingredients 
+GROUP BY food_name, food_number, unit, unit_price;
 
 
