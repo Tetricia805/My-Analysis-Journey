@@ -16,7 +16,6 @@ An entity is a person, place, object, or event that you want to store data about
 
 Examples: A Student, a Product, a Car, or a Sale
 
-
 #PEMDAS
 
 -- # PRAGMA_TABLE_INFO It is a command that helps find information about a table created
@@ -28,3 +27,18 @@ An attribute is a specific piece of information that describes the entity. In a 
 Examples: If the entity is a Student, the attributes are Name, Date of Birth, and Email.
 
 Aggregate functions include AVG, MAX, MIN, COUNT
+
+| Category              | Must-Know Concepts                                    | Why                 |
+| --------------------- | ----------------------------------------------------- | ---------------------------------- |
+| **Data Retrieval**    | SELECT, DISTINCT, WHERE, ORDER BY, LIMIT              | Foundation of all analysis         |
+| **Filtering**         | AND/OR/NOT, IN, BETWEEN, LIKE, wildcards              | Precision in data extraction       |
+| **Aggregation**       | COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING           | Business metric calculation        |
+| **Joins**             | INNER, LEFT, RIGHT, FULL, SELF, CROSS                 | Real data is relational            |
+| **Subqueries**        | Correlated, non-correlated, EXISTS                    | Complex logic decomposition        |
+| **CTEs**              | Recursive and non-recursive                           | Readable, maintainable code        |
+| **Window Functions**  | ROW\_NUMBER, RANK, DENSE\_RANK, LEAD, LAG, SUM() OVER | Time-series and ranking analysis   |
+| **Data Modification** | INSERT, UPDATE, DELETE, MERGE                         | Data pipeline operations           |
+| **Schema Design**     | Primary/foreign keys, normalization, indexing         | Database performance and integrity |
+| **Advanced**          | Stored procedures, triggers, views, temp tables       | Production-ready automation        |
+
+
