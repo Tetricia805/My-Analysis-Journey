@@ -359,3 +359,22 @@ FROM food_ingredients
 GROUP BY food_name, food_number, unit, unit_price;
 
 
+--  Joins
+
+SELECT recipes.recipe_id , recipes_ingredients.food_id 
+FROM recipes
+JOIN recipes_ingredients ON recipes.recipe_id = recipes_ingredients.recipe_id;
+
+
+SELECT *
+FROM recipes
+JOIN recipes_ingredients ON recipes.recipe_id = recipes_ingredients.recipe_id;
+
+SELECT *
+FROM recipes
+RIGHT JOIN recipes_ingredients ON recipes.recipe_id = recipes_ingredients.recipe_id;
+
+SELECT *
+FROM recipes
+LEFT JOIN recipes_ingredients ON recipes.recipe_id = recipes_ingredients.recipe_id;
+
