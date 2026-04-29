@@ -256,3 +256,46 @@ SELECT * FROM recipes_ingredients;
 -- Practice: SELECT, JOIN, GROUP BY, HAVING, Subqueries,
 --           Window Functions, CTEs, Triggers, Views
 
+-- SELECT, DISTINCT, WHERE, ORDER BY, LIMIT
+
+SELECT * 
+FROM kitchen.appliances;
+
+SELECT appliance_name, available_number
+FROM appliances;
+
+SELECT DISTINCT  appliance_name 
+FROM appliances;
+
+SELECT * 
+FROM food_ingredients;
+
+SELECT food_name,category
+FROM food_ingredients;
+
+SELECT DISTINCT category 
+FROM food_ingredients;
+
+SELECT * 
+FROM linen_safety;
+
+SELECT DISTINCT linen_type
+FROM linen_safety;
+
+SELECT linen_name, linen_type 
+FROM linen_safety
+WHERE linen_type = 'safety';
+
+SELECT * FROM linen_safety
+WHERE linen_type = 'linen';
+
+
+SELECT * 
+FROM  cleaning_supplies WHERE supply_name = 'Kitchen Spray';
+
+SELECT linen_type, linen_name
+FROM linen_safety  WHERE linen_type = 'safety' ORDER BY linen_type ASC;
+
+
+SELECT linen_type, linen_name
+FROM linen_safety  WHERE linen_type = 'safety' ORDER BY linen_type ASC LIMIT 1;
