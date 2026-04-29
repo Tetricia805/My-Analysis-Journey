@@ -299,3 +299,31 @@ FROM linen_safety  WHERE linen_type = 'safety' ORDER BY linen_type ASC;
 
 SELECT linen_type, linen_name
 FROM linen_safety  WHERE linen_type = 'safety' ORDER BY linen_type ASC LIMIT 1;
+
+
+-- Filtering 
+
+SELECT * 
+FROM recipes;
+
+SELECT  recipe_name, cuisine
+FROM recipes 
+WHERE cuisine = 'African' AND cook_time_min LIKE '3%';
+
+SELECT  recipe_name, cuisine
+FROM recipes 
+WHERE cuisine = 'African' AND cook_time_min LIKE '%0%';
+
+SELECT * 
+FROM recipes;
+
+SELECT recipe_name, cook_time_min 
+FROM recipes WHERE cook_time_min > 20;
+
+SELECT recipe_name, cuisine, servings, cook_time_min
+FROM recipes WHERE prep_time_min > 5 
+AND servings BETWEEN 2 AND 6
+AND cook_time_min >20;
+
+
+
