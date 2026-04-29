@@ -342,6 +342,8 @@ FROM kitchen.utensils_tools WHERE utensil_name LIKE '_a___';
 SELECT utensil_name, available_number
 FROM kitchen.utensils_tools WHERE utensil_name != 'Ladle';
 
+
+
 --  Aggregation
 
 SELECT * 
@@ -358,6 +360,14 @@ MIN(unit_price) minimum
 FROM food_ingredients 
 GROUP BY food_name, food_number, unit, unit_price;
 
+SELECT category, 
+       COUNT(*)        AS total_items,
+       ROUND(AVG(unit_price),2) AS avg_price,
+       SUM(food_number) AS total_stock
+FROM food_ingredients
+GROUP BY category
+HAVING AVG(unit_price) > 0.50
+ORDER BY avg_price DESC;
 
 --  Joins
 
@@ -378,3 +388,39 @@ SELECT *
 FROM recipes
 LEFT JOIN recipes_ingredients ON recipes.recipe_id = recipes_ingredients.recipe_id;
 
+-- What ingredients does each recipe use?
+SELECT r.recipe_name, f.food_name, ri.quantity, ri.unit
+FROM recipes r
+INNER JOIN recipes_ingredients ri ON r.recipe_id = ri.recipe_id
+INNER JOIN food_ingredients f     ON ri.food_id  = f.food_id
+ORDER BY r.recipe_name;
+
+-- Which recipes use protein ingredients?
+SELECT r.recipe_name, f.food_name, f.category
+FROM recipes r
+JOIN recipes_ingredients ri ON r.recipe_id = ri.recipe_id
+JOIN food_ingredients f     ON ri.food_id  = f.food_id
+WHERE f.category = 'protein';
+
+--  Window Functions
+SELECT food_name, category, unit_price,
+    RANK() OVER (PARTITION BY category ORDER BY unit_price DESC) AS price_rank,
+    ROUND(AVG(unit_price) OVER (PARTITION BY category), 2)       AS category_avg
+FROM food_ingredients;
+
+-- CTE (Common Table Expressions)
+WITH expensive_ingredients AS (
+    SELECT food_id, food_name, unit_price
+    FROM food_ingredients
+    WHERE unit_price > 3.00
+)
+SELECT r.recipe_name, e.food_name, e.unit_price
+FROM expensive_ingredients e
+JOIN recipes_ingredients ri ON e.food_id  = ri.food_id
+JOIN recipes r              ON ri.recipe_id = r.recipe_id;
+
+--  Subquery 
+-- Ingredients more expensive than the average
+SELECT food_name, unit_price
+FROM food_ingredients
+WHERE unit_price > (SELECT AVG(unit_price) FROM food_ingredients);
