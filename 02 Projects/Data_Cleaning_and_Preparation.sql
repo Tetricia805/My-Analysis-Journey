@@ -93,6 +93,9 @@ FROM staging2 where row_num >1;
 DELETE  
 FROM staging2 where row_num >1;
 
+-- standardizing the data
+
+select * from staging;
 
 
 
