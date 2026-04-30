@@ -26,8 +26,8 @@ FROM data_cleaning_world_layoffs.layoffs;
 
 SELECT *,
 ROW_NUMBER() OVER(
-PARTITION BY company, industry, total_laid_off, percentage_laid_off, `date`) AS row_num
-FROM layoffs_staging;
+PARTITION BY (company, industry, total_laid_off, percentage_laid_off, `date`) AS row_num
+FROM layoffs_staging);
 
 WITH duplicate_cte AS(
 SELECT *,
@@ -53,6 +53,7 @@ INSERT INTO `world_layoffs`.`layoffs_staging2`
 `country`,
 `funds_raised_millions`,
 `row_num`)
+
 SELECT `company`,
 `location`,
 `industry`,
