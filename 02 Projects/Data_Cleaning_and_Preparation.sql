@@ -185,10 +185,26 @@ WHERE t1.industry IS NULL
 AND t2.industry IS NOT NULL;
 
 
+ SELECT * 
+ FROM staging2 
+ WHERE total_laid_off = ''  OR total_laid_off  IS NULL
+ AND percentage_laid_off ='' OR percentage_laid_off is NULL;
+ 
+ 
 
+SELECT * 
+ FROM staging2 
+ WHERE total_laid_off = '' 
+ AND percentage_laid_off =''; 
+ 
+ DELETE 
+FROM staging2 
+ WHERE total_laid_off = '' 
+ AND percentage_laid_off =''; 
 
+SELECT *
+FROM staging2;
 
-
-
-
+ALTER TABLE staging2
+DROP row_num;
 
