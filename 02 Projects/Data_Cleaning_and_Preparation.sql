@@ -97,17 +97,92 @@ FROM staging2 where row_num >1;
 
 select * from staging;
 
+SELECT DISTINCT industry
+FROM staging;
 
+SELECT * 
+FROM staging 
+WHERE industry = '' 
+AND industry = 'NULL' ;
 
+SELECT * 
+FROM staging 
+WHERE industry LIKE 'crypto%';
 
+UPDATE  staging 
+SET industry = 'crytpo'
+WHERE industry LIKE 'crypto%';
 
+SELECT DISTINCT industry
+FROM staging2;
 
+SELECT DISTINCT country
+FROM staging2 ORDER BY 1 DESC;
 
+SELECT * FROM staging2;
 
+SELECT `date`,
+STR_TO_DATE(`date`, '%m/%d/%Y') date2
+FROM staging2;
 
+UPDATE staging2
+SET `date` = STR_TO_DATE(`date`, '%m/%d/%Y');
 
+ALTER TABLE staging2
+MODIFY `date` Date;
 
+SELECT *
+FROM staging2;
 
+SELECT date_added
+FROM staging2;
+
+SELECT date_added,
+STR_TO_DATE(date_added, '%m/%d/%Y') date2
+FROM staging2;
+
+UPDATE staging2
+SET date_added = STR_TO_DATE(date_added, '%m/%d/%Y');
+
+ALTER TABLE staging2
+MODIFY date_added  Date;
+
+SELECT date_added 
+FROM staging2;
+
+SELECT *
+ FROM staging2;
+ 
+ SELECT * 
+ FROM staging2
+ WHERE percentage_laid_off =''OR percentage_laid_off IS NULL ;
+ 
+ SELECT * 
+ FROM staging2 WHERE total_laid_off = ''  OR total_laid_off  IS NULL
+ AND percentage_laid_off ='' OR percentage_laid_off is NULL;
+ 
+ SELECT DISTINCT industry from staging;
+SELECT industry 
+FROM staging2
+WHERE industry IS NULL OR industry = '';
+
+UPDATE staging2
+SET industry = NULL
+WHERE industry = '';
+
+SELECT t1.industry, t2.industry
+FROM staging2 t1
+JOIN staging2 t2
+ON t1.company = t2.company
+WHERE  (t1.industry IS NULL)
+AND t2.industry IS NOT NULL;
+
+UPDATE staging2 t1
+JOIN staging2 t2
+ON t1.company = t2.company
+SET t1.insdustry = t2. industry
+WHERE t1.industry IS NULL 
+AND t2.industry IS NOT NULL;
 
 
 
