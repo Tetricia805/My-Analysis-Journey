@@ -208,3 +208,50 @@ FROM staging2;
 ALTER TABLE staging2
 DROP row_num;
 
+SELECT MAX(total_laid_off), MAX(percentage_laid_off)
+FROM staging2;
+
+SELECT MAX(`date`), MIN(`date`)
+FROM staging2;
+
+SELECT company, SUM(total_laid_off)
+FROM staging2
+GROUP BY company ORDER BY company DESC;
+
+SELECT YEAR(`date`), SUM(total_laid_off)
+FROM staging2
+GROUP BY YEAR(`date`);
+
+SELECT YEAR(`date`), SUM(total_laid_off)
+FROM staging2
+GROUP BY YEAR(`date`)
+ORDER BY YEAR(`date`) DESC; -- Sort by the most recent year first
+
+SELECT company, YEAR(`date`), SUM(total_laid_off)
+FROM staging2
+GROUP BY company, YEAR(`date`)
+ORDER BY company ASC, YEAR(`date`) DESC;
+
+USE data_cleaning_and_preparation;
+
+SELECT * FROM staging2;
+
+
+
+
+-- Analysis
+-- Layoffs Over Time
+
+-- Monthly trend
+SELECT 
+    DATE_FORMAT(`date`, '%Y-%m') AS month,
+    COUNT(*) AS num_companies,
+    SUM(total_laid_off) AS total_laid_off,
+    ROUND(AVG(percentage_laid_off), 4) AS avg_percentage
+FROM staging2
+GROUP BY DATE_FORMAT(`date`, '%Y-%m')
+ORDER BY month;
+
+
+
+
