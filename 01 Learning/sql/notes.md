@@ -45,7 +45,7 @@ Aggregate functions include AVG, MAX, MIN, COUNT
 **Types of databases and their use cases**
 
 1. **Relational Databases** (SQL): This is the "old reliable" and the most common type. Data is organized into structured tables with rows and columns, much like an Excel sheet. These tables are linked (related) to each other using unique keys
-2. 
+ 
    The Vibe: Strict, organized, and consistent.
    
    Key Tech: MySQL, PostgreSQL, Microsoft SQL Server, Oracle.
@@ -53,7 +53,7 @@ Aggregate functions include AVG, MAX, MIN, COUNT
    Use Cases:Banking Systems: Where every cent must be accounted for (high consistency).
    Inventory Management: Tracking products, suppliers, and orders that all link together.E-commerce: Connecting users to their specific orders and profiles
 
-4. **NoSQL Databases (Non-Relational**): NoSQL databases were built for speed and scale. They don’t use strict tables; instead, they store data as documents, graphs, or simple pairs. They are great when your data is "messy" or changes frequently.
+2. **NoSQL Databases (Non-Relational**): NoSQL databases were built for speed and scale. They don’t use strict tables; instead, they store data as documents, graphs, or simple pairs. They are great when your data is "messy" or changes frequently.
 
   The Vibe: Flexible, fast, and easy to grow.
   
@@ -79,5 +79,5 @@ Use Cases:Recommendation Engines: "People who bought this also liked..."Fraud De
    
    Use Cases:IoT Sensors: Tracking the temperature of a smart fridge every minute.Stock Market: Recording price fluctuations millisecond by millisecond
 
- 6. **Specialized DatabasesVector Databases (The AI Choice)**: Used for AI and Machine Learning. They store data as "embeddings" (numbers) so computers can find similar concepts rather than exact words. (e.g., Pinecone, Milvus).Distributed Databases: Spread across many computers to ensure the system never goes down (e.g., CockroachDB)
+ 5. **Specialized DatabasesVector Databases (The AI Choice)**: Used for AI and Machine Learning. They store data as "embeddings" (numbers) so computers can find similar concepts rather than exact words. (e.g., Pinecone, Milvus).Distributed Databases: Spread across many computers to ensure the system never goes down (e.g., CockroachDB)
   
