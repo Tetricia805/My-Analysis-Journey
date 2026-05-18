@@ -15,3 +15,22 @@ SELECT name, population, area
 FROM World
 WHERE
 area >= 3000000 OR population >= 25000000;
+
+-- Write a solution to find all the authors that viewed at least one of their own articles.
+-- Return the result table sorted by id in ascending order
+
+SELECT 
+DISTINCT author_id AS id
+FROM 
+Views
+WHERE
+author_id = viewer_id 
+ORDER BY id ASC ;
+
+-- OR
+SELECT DISTINCT(author_id) AS id
+FROM Views
+WHERE author_id = viewer_id
+GROUP BY author_id, viewer_id
+HAVING count(*) >= 1
+ORDER BY author_id ASC;
