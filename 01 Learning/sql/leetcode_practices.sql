@@ -46,3 +46,16 @@ FROM
 WHERE
     CHAR_LENGTH(content) > 15;
 
+-- Write a solution to show the unique ID of each user, If a user does not have a unique ID replace just show null.
+
+-- Return the result table in any order.
+
+SELECT 
+    ui.unique_id, e.name
+FROM
+    EmployeeUNI as ui
+RIGHT JOIN Employees e
+ON 
+ui.id = e.id;
+
+
